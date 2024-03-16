@@ -1,4 +1,6 @@
-export const pokemonTypeTemplate = (rowData) => {
+import "./Templates.css"
+
+export const dropdownTypeTemplate = (option) => {
 
     const typeColors = {
         Normal: '#A8A77A', // Greyish
@@ -20,17 +22,13 @@ export const pokemonTypeTemplate = (rowData) => {
         Steel: '#B7B7CE', // Metallic Gray
         Fairy: '#D685AD', // Soft Pink
       };
-
-      
+  
+    const typeColor = typeColors[option.value] || '#888'; // Fallback color
+  
     return (
-      <div style={{ display: 'flex', gap: '10px' }}>
-        {rowData.type.map((type) => (
-          <span key={type} style={{
-            backgroundColor: typeColors[type],
-          }} className="typeTemplate">
-            {type}
-          </span>
-        ))}
-      </div>
+      <span style={{ backgroundColor: typeColor}} className="dropdownTemplate">
+        {option.label}
+      </span>
     );
   };
+  

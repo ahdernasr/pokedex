@@ -1,0 +1,31 @@
+/* Pokemon Table */
+
+.tableHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.w-80 {
+  max-width: 80%;
+  min-width: 80%;
+  width: 80%;
+  font-family: "Arcade-Classic", sans-serif;
+}
+.w-20 {
+  max-width: 15%;
+  min-width: 15%;
+  width: 15%;
+}
+
+.w-10 {
+  max-width: 10%;
+  min-width: 10%;
+  width: 10%;
+}
+
+.w-5 {
+  max-width: 5%;
+  min-width: 5%;
+  width: 5%;
+}

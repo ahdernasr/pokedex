@@ -1,17 +1,18 @@
-import { DataTable } from "primereact/datatable";
-import { Dropdown } from "primereact/dropdown";
-import { Column } from "primereact/column";
 import { useState } from "react";
 import { FilterMatchMode } from "primereact/api";
 import { useQuery } from "@apollo/client";
-import { GET_POKEMON } from "../queries/pokemonQueries";
-import { pokemonTypeTemplate } from "./pokemonTypeTemplate";
-import { imageBodyTemplate } from "./imageBodyTemplate";
-import { dropdownTypeTemplate } from "./dropdownTypeTemplate";
+import { DataTable } from "primereact/datatable";
+import { Dropdown } from "primereact/dropdown";
+import { Column } from "primereact/column";
+import { ProgressSpinner } from "primereact/progressspinner";
 import { InputText } from "primereact/inputtext";
+import { GET_POKEMON } from "../../queries/pokemonQueries";
+import { pokemonTypeTemplate } from "../Templates/pokemonTypeTemplate";
+import { imageBodyTemplate } from "../Templates/imageBodyTemplate";
+import { dropdownTypeTemplate } from "../Templates/dropdownTypeTemplate";
 import "primereact/resources/themes/mdc-light-deeppurple/theme.css";
 import "primereact/resources/primereact.min.css";
-import { ProgressSpinner } from "primereact/progressspinner";
+import "./PokemonTable.css"
 
 const PokemonTable = () => {
   const [filters, setFilters] = useState({
@@ -89,7 +90,9 @@ const PokemonTable = () => {
       rowData.base.HP +
       rowData.base.Speed +
       rowData.base.Attack +
-      rowData.base.Defense
+      rowData.base.Defense +
+      rowData.base.SpAttack +
+      rowData.base.SpDefense
     );
   };
 
@@ -127,7 +130,6 @@ const PokemonTable = () => {
         field="base.type"
         header="Type"
         body={pokemonTypeTemplate}
-        sortable
         className="w-20"
         style={{ minWidth: "12rem" }}
       ></Column>

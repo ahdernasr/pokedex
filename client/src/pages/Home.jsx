@@ -1,4 +1,4 @@
-import PokemonTable from "../components/PokemonTable";
+import PokemonTable from "../components/PokemonTable/PokemonTable";
 
 const Home = () => {
   return (

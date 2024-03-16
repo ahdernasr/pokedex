@@ -1,0 +1,19 @@
+/* TEMPLATES */
+
+.imageTemplate {
+  width: 100%;
+  box-shadow: 2px;
+}
+
+.typeTemplateSpanner {
+  color: "white";
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-family: "Arcade-Classic", sans-serif;
+  padding: 5px 10px;
+}
+
+.dropdownTemplate {
+  padding: 5px;
+  border-radius: 5px;
+}
