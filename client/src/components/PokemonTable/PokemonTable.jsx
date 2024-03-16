@@ -1,12 +1,9 @@
 import { useState } from "react";
 import { FilterMatchMode } from "primereact/api";
-import { useQuery } from "@apollo/client";
 import { DataTable } from "primereact/datatable";
 import { Dropdown } from "primereact/dropdown";
 import { Column } from "primereact/column";
-import { ProgressSpinner } from "primereact/progressspinner";
 import { InputText } from "primereact/inputtext";
-import { GET_POKEMON } from "../../queries/pokemonQueries";
 import { pokemonTypeTemplate } from "../Templates/pokemonTypeTemplate";
 import { imageBodyTemplate } from "../Templates/imageBodyTemplate";
 import { dropdownTypeTemplate } from "../Templates/dropdownTypeTemplate";
@@ -14,7 +11,7 @@ import "primereact/resources/themes/mdc-light-deeppurple/theme.css";
 import "primereact/resources/primereact.min.css";
 import "./PokemonTable.css"
 
-const PokemonTable = () => {
+const PokemonTable = ({ data }) => {
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });
@@ -96,15 +93,9 @@ const PokemonTable = () => {
     );
   };
 
-  const { loading, error, data } = useQuery(GET_POKEMON);
-
-  if (loading) return <ProgressSpinner />;
-  if (error) return <p>{JSON.stringify(error)}</p>;
-
   return (
     <DataTable
       value={data.pokemons}
-      loading={loading}
       currentPageReportTemplate="{first} to {last} of {totalRecords}"
       rowsPerPageOptions={[10, 20, 50, 100]}
       paginator

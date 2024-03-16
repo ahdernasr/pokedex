@@ -42,7 +42,7 @@ const RootQuery = new GraphQLObjectType({
       type: PokemonType,
       args: { id: { type: GraphQLString } },
       resolve(parent, args, context, info) {
-        return pokemonData[args.id];
+        return pokemonData.map(mapPokemonBaseStats)[args.id-1];
       },
     },
     pokemons: {
