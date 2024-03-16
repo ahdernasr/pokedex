@@ -7,73 +7,79 @@ import { useQuery } from "@apollo/client";
 import { GET_POKEMON } from "../queries/pokemonQueries";
 import { pokemonTypeTemplate } from "./pokemonTypeTemplate";
 import { imageBodyTemplate } from "./imageBodyTemplate";
+import { dropdownTypeTemplate } from "./dropdownTypeTemplate";
 import { InputText } from "primereact/inputtext";
 import "primereact/resources/themes/mdc-light-deeppurple/theme.css";
 import "primereact/resources/primereact.min.css";
 import { ProgressSpinner } from "primereact/progressspinner";
-
-export const typeRowFilterTemplate = (options) => {
-  const types = [
-    "Normal",
-    "Fire",
-    "Water",
-    "Electric",
-    "Grass",
-    "Ice",
-    "Fighting",
-    "Poison",
-    "Ground",
-    "Flying",
-    "Psychic",
-    "Bug",
-    "Rock",
-    "Ghost",
-    "Dragon",
-    "Dark",
-    "Steel",
-    "Fairy",
-  ];
-
-  return (
-    <Dropdown
-      value={options.value}
-      options={types}
-      onChange={(e) => options.filterApplyCallback(e.value)}
-      itemTemplate={pokemonTypeTemplate}
-      placeholder="Select One"
-      className="p-column-filter"
-      showClear
-      style={{ minWidth: "12rem" }}
-    />
-  );
-};
 
 const PokemonTable = () => {
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });
 
+  const [selectedType, setSelectedType] = useState(null);
+
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const header = () => {
+    const types = [
+      "Normal",
+      "Fire",
+      "Water",
+      "Electric",
+      "Grass",
+      "Ice",
+      "Fighting",
+      "Poison",
+      "Ground",
+      "Flying",
+      "Psychic",
+      "Bug",
+      "Rock",
+      "Ghost",
+      "Dragon",
+      "Dark",
+      "Steel",
+      "Fairy",
+    ];
+
     return (
-      <div>
+      <div className="tableHeader">
         <span className="p-input-icon-left">
           <i className="pi pi-search" />
           <InputText
             placeholder="Pokemon search"
-            onInput={(e) =>
+            onInput={(e) => {
               setFilters({
                 global: {
                   value: e.target.value,
                   matchMode: FilterMatchMode.CONTAINS,
                 },
                 types: { value: null, matchMode: FilterMatchMode.EQUALS },
-              })
-            }
+              });
+              setSelectedType(null);
+            }}
             className="arcade"
           />
         </span>
+        <Dropdown
+          value={selectedType}
+          options={types.map((type) => ({ label: type, value: type }))}
+          onChange={(e) => {
+            setSelectedType(e.value);
+            setFilters((prevFilters) => ({
+              ...prevFilters,
+              type: { value: e.value, matchMode: FilterMatchMode.EQUALS },
+            }));
+          }}
+          itemTemplate={dropdownTypeTemplate}
+          optionLabel="label"
+          placeholder="Select Type"
+          className="p-column-filter"
+          showClear
+          style={{ minWidth: "12rem" }}
+        />
       </div>
     );
   };
@@ -123,11 +129,7 @@ const PokemonTable = () => {
         body={pokemonTypeTemplate}
         sortable
         className="w-20"
-        showFilterMenu={false}
-        filterMenuStyle={{ width: "14rem" }}
         style={{ minWidth: "12rem" }}
-        filter
-        filterElement={typeRowFilterTemplate}
       ></Column>
       <Column
         header="Total"
