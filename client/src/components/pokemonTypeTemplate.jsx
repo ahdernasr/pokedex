@@ -27,11 +27,7 @@ export const pokemonTypeTemplate = (rowData) => {
         {rowData.type.map((type) => (
           <span key={type} style={{
             backgroundColor: typeColors[type],
-            color: 'white',
-            padding: '5px 10px',
-            borderRadius: '4px',
-            fontSize: '0.8rem',
-          }}>
+          }} className="typeTemplate">
             {type}
           </span>
         ))}
