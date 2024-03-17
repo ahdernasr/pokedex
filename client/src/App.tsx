@@ -4,6 +4,7 @@ import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
 import Home from "./pages/Home";
 import PokemonView from "./pages/PokemonView";
 import NotFound from "./pages/NotFound";
+import Navbar from "./pages/Navbar";
 
 loadDevMessages();
 loadErrorMessages();
@@ -16,13 +17,12 @@ const client = new ApolloClient({
 });
 
 function App() {
+
   return (
     <>
       <ApolloProvider client={client}>
         <Router>
-          <div className="navbar">
-            <h1 className="">Pokedex</h1>
-          </div>
+         <Navbar />
           <div className="main">
             <Routes>
               <Route path="/" element={<Home />} />

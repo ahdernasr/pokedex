@@ -29,6 +29,7 @@ body {
 
 .navbar h1 {
   font-size: 50px;
+  cursor: pointer;
 }
 
 /* Home */
@@ -64,13 +65,17 @@ body {
 }
 
 .viewSection {
-  width: 30%;
+  width: 33%;
   height: 50vh;
   margin: 1rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+
+.statTypeContainer {
+  margin-bottom: 1rem;
 }
 
 .statType {
@@ -86,23 +91,47 @@ body {
   height: 15%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   font-size: 25px;
 }
 
 .stat progress {
-  margin: 5px;
+  max-width: 400px; 
+  height: 20%; 
+  color: #4caf50;
+  background-color: rgb(222, 222, 222);
+  border-radius: 3px;
+}
+
+/* For browser support: */
+.stat progress::-webkit-progress-bar {
+  background-color: rgb(222, 222, 222);
+  border-radius: 3px;
+}
+
+.stat progress::-webkit-progress-value {
+  background-color: #ff6e25;
+  border-radius: 3px;
+}
+
+.stat progress::-moz-progress-bar {
+  background-color: #ff6e25;
+  border-radius: 3px;
 }
 
 .stat-header {
   margin: 5px;
-  width: 33%;
+  width: 150px;
+  max-width: 33%;
+  margin-right: 2rem;
   text-align: center;
 }
 
 .stat-value {
-  margin: 5px;
   margin: 2rem;
+  width: 100px;
+  max-width: 20%;
+  margin-left: 3rem;
 }
 
 .viewImage {

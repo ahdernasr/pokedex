@@ -87,10 +87,9 @@ const PokemonView = () => {
             </div>
             <div className="viewSection">
               <div
-                className="stat fadeInLeftAnimation"
+                className="statTypeContainer fadeInLeftAnimation"
                 style={{ animationDuration: "1s", animationDelay: "0.05s" }}
               >
-                <p className="stat-header">Types:</p>
                 {data.pokemon.type.map((type) => (
                   <span
                     key={type}
