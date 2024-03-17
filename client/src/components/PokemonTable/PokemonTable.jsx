@@ -93,7 +93,7 @@ const PokemonTable = ({ data }) => {
     <DataTable
       value={pokemonData}
       currentPageReportTemplate="{first} to {last} of {totalRecords}"
-      rowsPerPageOptions={[10, 20, 50, 100]}
+      rowsPerPageOptions={[10, 20, 50, 100, 250]}
       paginator
       showGridlines
       rows={10}

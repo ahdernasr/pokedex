@@ -58,7 +58,7 @@ const PokemonView = () => {
               className="fadeInAnimation viewSection"
               style={{ animationDuration: "0.35s", animationDelay: "0.05s" }}
             >
-              <div className="viewHeader">{data.pokemon.name}</div>
+              <div className="viewHeader">{data.pokemon.name} - {id}</div>
               <img
                 src={`https://img.pokemondb.net/artwork/${imageName.toLowerCase()}.jpg`}
                 alt={data.pokemon.name}
