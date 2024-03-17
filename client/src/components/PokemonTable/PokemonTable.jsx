@@ -10,14 +10,16 @@ import { dropdownTypeTemplate } from "../Templates/dropdownTypeTemplate";
 import "primereact/resources/themes/mdc-light-deeppurple/theme.css";
 import "primereact/resources/primereact.min.css";
 import "./PokemonTable.css"
+import { useNavigate } from "react-router-dom";
 
 const PokemonTable = ({ data }) => {
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });
 
-  const [selectedType, setSelectedType] = useState(null);
+  const navigate = useNavigate();
 
+  const [selectedType, setSelectedType] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const header = () => {
@@ -102,7 +104,7 @@ const PokemonTable = ({ data }) => {
       showGridlines
       rows={10}
       paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
-      className="w-80"
+      className="arcade w-80"
       scrollable
       scrollHeight="70vh"
       dataKey="id"
@@ -112,7 +114,10 @@ const PokemonTable = ({ data }) => {
       header={header}
       selectionMode="single"
       selection={selectedProduct}
-      onSelectionChange={(e) => setSelectedProduct(e.value)}
+      onSelectionChange={(e) => {
+        setSelectedProduct(e.value)
+        navigate(`/pokemon/${e.value.id}`)
+      }}
     >
       <Column body={imageBodyTemplate} className="w-10"></Column>
       <Column field="id" header="ID" sortable className="w-5"></Column>
