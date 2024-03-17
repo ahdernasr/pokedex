@@ -2,6 +2,7 @@
 
 .imageTemplate {
   width: 100%;
+  min-width: 35px;
   box-shadow: 2px;
 }
 

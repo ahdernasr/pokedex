@@ -9,7 +9,7 @@ import { imageBodyTemplate } from "../Templates/imageBodyTemplate";
 import { dropdownTypeTemplate } from "../Templates/dropdownTypeTemplate";
 import "primereact/resources/themes/mdc-light-deeppurple/theme.css";
 import "primereact/resources/primereact.min.css";
-import "./PokemonTable.css"
+import "./PokemonTable.css";
 import { useNavigate } from "react-router-dom";
 
 const PokemonTable = ({ data }) => {
@@ -70,7 +70,7 @@ const PokemonTable = ({ data }) => {
             setSelectedType(e.value);
             setFilters((prevFilters) => ({
               ...prevFilters,
-              type: { value: e.value, matchMode: FilterMatchMode.EQUALS },
+              type: { value: e.value, matchMode: FilterMatchMode.CONTAINS },
             }));
           }}
           itemTemplate={dropdownTypeTemplate}
@@ -115,8 +115,8 @@ const PokemonTable = ({ data }) => {
       selectionMode="single"
       selection={selectedProduct}
       onSelectionChange={(e) => {
-        setSelectedProduct(e.value)
-        navigate(`/pokemon/${e.value.id}`)
+        setSelectedProduct(e.value);
+        navigate(`/pokemon/${e.value.id}`);
       }}
     >
       <Column body={imageBodyTemplate} className="w-10"></Column>
