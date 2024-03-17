@@ -84,20 +84,14 @@ const PokemonTable = ({ data }) => {
     );
   };
 
-  const totalBase = (rowData) => {
-    return (
-      rowData.base.HP +
-      rowData.base.Speed +
-      rowData.base.Attack +
-      rowData.base.Defense +
-      rowData.base.SpAttack +
-      rowData.base.SpDefense
-    );
-  };
+  const pokemonData = data.pokemons.map(pokemon => ({
+    ...pokemon,
+    totalBase: pokemon.base.HP + pokemon.base.Speed + pokemon.base.Attack + pokemon.base.Defense + pokemon.base.SpAttack + pokemon.base.SpDefense
+  }));
 
   return (
     <DataTable
-      value={data.pokemons}
+      value={pokemonData}
       currentPageReportTemplate="{first} to {last} of {totalRecords}"
       rowsPerPageOptions={[10, 20, 50, 100]}
       paginator
@@ -131,7 +125,7 @@ const PokemonTable = ({ data }) => {
       ></Column>
       <Column
         header="Total"
-        body={(rowData) => totalBase(rowData)}
+        field="totalBase"
         sortable
         className="w-5"
       ></Column>
