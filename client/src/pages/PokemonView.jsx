@@ -36,6 +36,18 @@ const PokemonView = () => {
     Fairy: "#D685AD", // Soft Pink
   };
 
+  var imageName;
+  if (!loading) {
+    if (data.pokemon.name.substr(data.pokemon.name.length - 1) === "♂") {
+      imageName = data.pokemon.name.slice(0, -1) + "-m";
+    } else if (data.pokemon.name.substr(data.pokemon.name.length - 1) === "♀") {
+      imageName = data.pokemon.name.slice(0, -1) + "-f";
+    } else {
+      imageName = data.pokemon.name.replace(/[\s']/g, "");
+      imageName = imageName.replace(/[.]/g, "-");
+    }
+  }
+
   return (
     <div className="pokemonView">
       {loading && <ProgressSpinner />}
@@ -48,7 +60,7 @@ const PokemonView = () => {
             >
               <div className="viewHeader">{data.pokemon.name}</div>
               <img
-                src={`https://img.pokemondb.net/artwork/${data.pokemon.name.toLowerCase()}.jpg`}
+                src={`https://img.pokemondb.net/artwork/${imageName.toLowerCase()}.jpg`}
                 alt={data.pokemon.name}
                 className="viewImage"
               />
