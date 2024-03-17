@@ -13,7 +13,7 @@ const PokemonView = () => {
     variables: { id: id },
   });
 
-  if (error) return <p>{JSON.stringify(error)}</p>;
+  if (error || (!loading && !data.pokemon)) navigate("/404");
 
   const typeColors = {
     Normal: "#A8A77A", // Greyish
@@ -37,7 +37,7 @@ const PokemonView = () => {
   };
 
   var imageName;
-  if (!loading) {
+  if (!loading && !error) {
     if (data.pokemon.name.substr(data.pokemon.name.length - 1) === "♂") {
       imageName = data.pokemon.name.slice(0, -1) + "-m";
     } else if (data.pokemon.name.substr(data.pokemon.name.length - 1) === "♀") {
@@ -58,7 +58,9 @@ const PokemonView = () => {
               className="fadeInAnimation viewSection"
               style={{ animationDuration: "0.35s", animationDelay: "0.05s" }}
             >
-              <div className="viewHeader">{data.pokemon.name} - {id}</div>
+              <div className="viewHeader">
+                {data.pokemon.name} - {id}
+              </div>
               <img
                 src={`https://img.pokemondb.net/artwork/${imageName.toLowerCase()}.jpg`}
                 alt={data.pokemon.name}
@@ -76,7 +78,7 @@ const PokemonView = () => {
                 <Button
                   className="viewButton"
                   onClick={() => {
-                    navigate(`/pokemon/${id <= 810 ? parseInt(id) + 1 : id}`);
+                    navigate(`/pokemon/${id < 809 ? parseInt(id) + 1 : id}`);
                   }}
                 >
                   Next
