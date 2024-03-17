@@ -43,8 +43,8 @@ const PokemonView = () => {
     } else if (data.pokemon.name.substr(data.pokemon.name.length - 1) === "♀") {
       imageName = data.pokemon.name.slice(0, -1) + "-f";
     } else {
-      imageName = data.pokemon.name.replace(/[\s']/g, "");
-      imageName = imageName.replace(/[.]/g, "-");
+      imageName = data.pokemon.name.replace(/[']/g, "");
+      imageName = imageName.replace(/[\s.]/g, "-");
     }
   }
 
