@@ -57,7 +57,7 @@ const PokemonView = () => {
                       backgroundColor: typeColors[type],
                       margin: "3px",
                     }}
-                    className="typeTemplateSpanner"
+                    className="statType"
                   >
                     {type}
                   </span>
