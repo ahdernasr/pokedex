@@ -1,18 +1,14 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const navigate = useNavigate();
   return (
     <div className="navbar">
-      <h1
-        className=""
-        onClick={() => {
-          navigate("/");
-        }}
+      <Link
+        className="navbar-head"
+        to="/"
       >
         Pokedex
-      </h1>
+      </Link>
     </div>
   );
 };

@@ -1,13 +1,10 @@
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { loadErrorMessages, loadDevMessages } from "@apollo/client/dev";
 import Home from "./pages/Home";
 import PokemonView from "./pages/PokemonView";
 import NotFound from "./pages/NotFound";
 import Navbar from "./pages/Navbar";
 
-loadDevMessages();
-loadErrorMessages();
 
 const cache = new InMemoryCache({});
 
