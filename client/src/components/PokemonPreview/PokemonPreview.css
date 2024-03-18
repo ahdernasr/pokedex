@@ -1,0 +1,40 @@
+.viewHeader {
+  font-size: 50px;
+  margin: 2rem 0;
+}
+
+.viewSection {
+  width: 33%;
+  height: 50vh;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.viewImage {
+  width: 60%;
+  max-height: 85%;
+}
+
+.viewButtonContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+  max-width: 75%;
+  padding: 1rem;
+}
+
+.viewButton {
+  font-family: "Arcade-Classic", sans-serif;
+  background: rgb(222, 222, 222);
+  color: black;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.viewButton:hover {
+  cursor: pointer;
+}

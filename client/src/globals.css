@@ -1,0 +1,57 @@
+@font-face {
+  font-family: "Arcade-Classic";
+  src: url("../public/fonts/ARCADECLASSIC.TTF");
+}
+
+body {
+  font-family: "Arcade-Classic", sans-serif;
+  letter-spacing: 4px;
+  margin: 0;
+  user-select: none;
+}
+
+.main {
+  margin: 0;
+  width: 100%;
+  height: 90vh;
+}
+
+/* Scrollbar Styles */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(90, 90, 90);
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* PrimeReact Font Overrides */
+
+.p-paginator .p-paginator-pages .p-paginator-page,
+.p-paginator .p-paginator-first,
+.p-paginator .p-paginator-prev,
+.p-paginator .p-paginator-next,
+.p-paginator .p-paginator-last,
+.p-paginator .p-paginator-current,
+.p-dropdown .dropdown-label,
+.p-dropdown-item,
+.p-dropdown .p-dropdown-trigger,
+.p-drop-down-label,
+.p-dropdown .p-dropdown-label
+{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    font-family: "Arcade-Classic", sans-serif;
+}
+  
+
+.p-paginator .p-paginator-pages .p-paginator-page {
+  font-weight: bold; 
+}

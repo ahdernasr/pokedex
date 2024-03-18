@@ -1,12 +1,12 @@
 import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import PokemonView from "./pages/PokemonView";
-import NotFound from "./pages/NotFound";
-import Navbar from "./pages/Navbar";
+import Home from "./pages/Home/Home";
+import PokemonView from "./pages/PokemonView/PokemonView";
+import NotFound from "./pages/NotFound/NotFound";
+import Navbar from "./pages/Navbar/Navbar";
 
 
-const cache = new InMemoryCache({});
+const cache = new InMemoryCache({}); // Not needed for this project
 
 const client = new ApolloClient({
   uri: "http://localhost:8888/graphql",

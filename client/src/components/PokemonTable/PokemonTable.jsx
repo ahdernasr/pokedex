@@ -11,8 +11,10 @@ import "primereact/resources/themes/mdc-light-deeppurple/theme.css";
 import "primereact/resources/primereact.min.css";
 import "./PokemonTable.css";
 import { useNavigate } from "react-router-dom";
+import { types } from "../../utils/types";
 
 const PokemonTable = ({ data }) => {
+  // Filters for search bar
   const [filters, setFilters] = useState({
     global: { value: null, matchMode: FilterMatchMode.CONTAINS },
   });
@@ -22,28 +24,8 @@ const PokemonTable = ({ data }) => {
   const [selectedType, setSelectedType] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
+  // Table header, with search bar and type filter dropdown
   const header = () => {
-    const types = [
-      "Normal",
-      "Fire",
-      "Water",
-      "Electric",
-      "Grass",
-      "Ice",
-      "Fighting",
-      "Poison",
-      "Ground",
-      "Flying",
-      "Psychic",
-      "Bug",
-      "Rock",
-      "Ghost",
-      "Dragon",
-      "Dark",
-      "Steel",
-      "Fairy",
-    ];
-
     return (
       <div className="tableHeader">
         <span className="p-input-icon-left">
@@ -84,21 +66,29 @@ const PokemonTable = ({ data }) => {
     );
   };
 
-  const pokemonData = data.pokemons.map(pokemon => ({
+  // Change pokemon objects to include a total field
+  // NOTE: This speeds up sorting speeds considerably, versus simply summing up the fields in the data table
+  const pokemonData = data.pokemons.map((pokemon) => ({
     ...pokemon,
-    totalBase: pokemon.base.HP + pokemon.base.Speed + pokemon.base.Attack + pokemon.base.Defense + pokemon.base.SpAttack + pokemon.base.SpDefense
+    totalBase:
+      pokemon.base.HP +
+      pokemon.base.Speed +
+      pokemon.base.Attack +
+      pokemon.base.Defense +
+      pokemon.base.SpAttack +
+      pokemon.base.SpDefense,
   }));
 
   return (
     <DataTable
       value={pokemonData}
       currentPageReportTemplate="{first} to {last} of {totalRecords}"
-      rowsPerPageOptions={[10, 20, 50, 100, 250]}
+      rowsPerPageOptions={[10, 20, 50, 100]}
       paginator
       showGridlines
       rows={10}
-      paginatorTemplate="RowsPerPageDropdown FirstPageLink PrevPageLink CurrentPageReport NextPageLink LastPageLink"
-      className="arcade w-80"
+      paginatorTemplate="RowsPerPageDropdown PrevPageLink CurrentPageReport NextPageLink"
+      className="arcade data-table"
       scrollable
       scrollHeight="70vh"
       dataKey="id"
@@ -110,7 +100,7 @@ const PokemonTable = ({ data }) => {
       selection={selectedProduct}
       onSelectionChange={(e) => {
         setSelectedProduct(e.value);
-        navigate(`/pokemon/${e.value.id}`);
+        navigate(`/pokemon/${e.value.id}`); // Go to selected pokemon vue
       }}
     >
       <Column body={imageBodyTemplate} className="w-10"></Column>
@@ -150,13 +140,13 @@ const PokemonTable = ({ data }) => {
       ></Column>
       <Column
         field="base.SpAttack"
-        header="Sp. Attack"
+        header="Sp. Att"
         sortable
         className="w-10"
       ></Column>
       <Column
         field="base.SpDefense"
-        header="Sp. Defense"
+        header="Sp. Def"
         sortable
         className="w-10"
       ></Column>

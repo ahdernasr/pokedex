@@ -3,7 +3,7 @@
 .arcade {
   font-family: "Arcade-Classic", sans-serif;
   letter-spacing: 2px;
-  font-size: 25px;
+  font-size: 1.25vw;
 }
 
 .tableHeader {
@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-.w-80 {
+.data-table {
   max-width: 85vw;
   min-width: 85vw;
   width: 85vw;

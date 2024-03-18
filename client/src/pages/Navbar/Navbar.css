@@ -1,0 +1,23 @@
+/* NAV */
+
+.navbar {
+  height: 8vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 3rem;
+  background: rgb(222, 222, 222);
+  margin-bottom: 1rem;
+}
+
+.navbar-head {
+  font-size: 50px;
+  cursor: pointer;
+  color: black;
+  text-decoration: none;
+  z-index: 99;
+}
+
+.navbar-head:hover {
+  cursor: pointer;
+}

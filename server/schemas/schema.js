@@ -1,4 +1,5 @@
-const pokemonData = require("./data/pokemon.json");
+const pokemonData = require("../data/pokemon.json");
+const mapPokemonBaseStats = require("../utils/mapPokemonBaseStats")
 
 const {
   GraphQLObjectType,
@@ -10,6 +11,7 @@ const {
   GraphQLNonNull,
 } = require("graphql");
 
+// 'pokemon.base' type, used inside the PokemonType
 const BaseStatsType = new GraphQLObjectType({
   name: "BaseStats",
   fields: () => ({
@@ -22,6 +24,7 @@ const BaseStatsType = new GraphQLObjectType({
   }),
 });
 
+// 'pokemon' type
 const PokemonType = new GraphQLObjectType({
   name: "Pokemon",
   fields: () => ({
@@ -38,13 +41,15 @@ const PokemonType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
-    pokemon: {
+    // Get a single pokemon by id
+    pokemon: { 
       type: PokemonType,
       args: { id: { type: GraphQLString } },
       resolve(parent, args, context, info) {
         return pokemonData.map(mapPokemonBaseStats)[args.id-1];
       },
     },
+    // Get array of all pokemons, no args required
     pokemons: {
       type: GraphQLList(PokemonType),
       resolve(parent, args, context, info) {
@@ -53,21 +58,6 @@ const RootQuery = new GraphQLObjectType({
     },
   },
 });
-
-function mapPokemonBaseStats(pokemon) {
-  if (!pokemon) return null;
-  return {
-    ...pokemon,
-    base: {
-      HP: pokemon.base.HP,
-      Attack: pokemon.base.Attack,
-      Defense: pokemon.base.Defense,
-      SpAttack: pokemon.base['Sp. Attack'],
-      SpDefense: pokemon.base['Sp. Defense'],
-      Speed: pokemon.base.Speed,
-    },
-  };
-}
 
 module.exports = new GraphQLSchema({
   query: RootQuery,
