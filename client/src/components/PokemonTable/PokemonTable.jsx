@@ -104,51 +104,51 @@ const PokemonTable = ({ data }) => {
       }}
     >
       <Column body={imageBodyTemplate} className="w-10"></Column>
-      <Column field="id" header="ID" sortable className="w-5"></Column>
-      <Column field="name" header="Name" sortable className="w-20"></Column>
+      <Column field="id" header="ID" sortable className="w-3"></Column>
+      <Column field="name" header="Name" sortable className="w-1"></Column>
       <Column
         field="base.type"
         header="Type"
         body={pokemonTypeTemplate}
-        className="w-20"
+        className="w-1"
         style={{ minWidth: "12rem" }}
       ></Column>
       <Column
         header="Total"
         field="totalBase"
         sortable
-        className="w-5"
+        className="w-2"
       ></Column>
       <Column field="base.HP" header="HP" sortable className="w-5"></Column>
       <Column
         field="base.Speed"
         header="Speed"
         sortable
-        className="w-10"
+        className="w-2"
       ></Column>
       <Column
         field="base.Attack"
         header="Attack"
         sortable
-        className="w-10"
+        className="w-2"
       ></Column>
       <Column
         field="base.Defense"
         header="Defense"
         sortable
-        className="w-10"
+        className="w-2"
       ></Column>
       <Column
         field="base.SpAttack"
         header="Sp. Att"
         sortable
-        className="w-10"
+        className="w-2"
       ></Column>
       <Column
         field="base.SpDefense"
         header="Sp. Def"
         sortable
-        className="w-10"
+        className="w-2"
       ></Column>
     </DataTable>
   );
