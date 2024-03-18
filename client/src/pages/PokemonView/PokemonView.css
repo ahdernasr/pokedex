@@ -154,10 +154,11 @@
 
 .viewButtonContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   width: 75%;
   max-width: 75%;
   padding: 1rem;
+  margin: 1rem
 }
 
 .viewButton {
@@ -166,6 +167,7 @@
   color: black;
   display: flex;
   justify-content: center;
+  margin: 0 1rem;
 }
 
 @media (max-width: 900px) {
