@@ -8,7 +8,7 @@ import Navbar from "./pages/Navbar/Navbar";
 const cache = new InMemoryCache({}); // Not needed for this project
 
 const client = new ApolloClient({
-  uri: "https://seahorse-app-482im.ondigitalocean.app/graphql",
+  uri: "http://localhost:8888/graphql", // Need to use .env variables if this were to be deployed
   cache,
 });
 
