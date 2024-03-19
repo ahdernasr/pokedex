@@ -3,7 +3,7 @@
 This is a simple Pokedex app built with React, Express, and GraphQL. It fulfils the following requirements:
 
 - [x] A simple server in Express.js with a single GET route that returns an array of Pokémon based on the pokemon.json file.
-- [x] Display a list of Pokémon in a table with columns for their specifications (name, hit points, type, abilities, weight, etc.).
+- [x] Display a list of Pokémon in a table with columns for their specifications.
 - [x] The table should have a search field, sortable columns, pagination, and filters by Pokémon type.
 - [x] From the table, it should be possible to select a Pokémon to go to a detailed view. In this view, it should be possible to see an image of the Pokémon as well as more information about it.
 
