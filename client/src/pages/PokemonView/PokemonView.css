@@ -22,7 +22,7 @@
 }
 
 .viewSection {
-  width: 45%;;
+  width: 40%;;
   height: 50vh;
   margin: 1rem;
   display: flex;
@@ -170,7 +170,7 @@
   margin: 0 1rem;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .viewSectionContainer {
     display: block;
     overflow: scroll;
