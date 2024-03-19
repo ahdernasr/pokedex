@@ -8,7 +8,12 @@ const Home = () => {
   // Get all available pokemons
   const { loading, error, data } = useQuery(GET_POKEMONS);
 
-  if (error) return <p>{JSON.stringify(error)}</p>;
+  if (error)
+    return (
+      <div className="home">
+        <h1>An error occured, please try again later.</h1>
+      </div>
+    );
 
   return (
     <div className="home">
