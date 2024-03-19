@@ -12,6 +12,7 @@ const Home = () => {
     return (
       <div className="home">
         <h1>An error occured, please try again later.</h1>
+        <h1>{error.message}</h1>
       </div>
     );
 
