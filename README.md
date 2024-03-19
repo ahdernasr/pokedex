@@ -1,6 +1,6 @@
 # Pokedex
 
-This is a simple Pokedex app built with React, Express, and GraphQL. It fulfils the following requirements:
+This is a Pokedex app built with React, Express, and GraphQL. It fulfils the following requirements:
 
 - [x] A simple server in Express.js with a single GET route that returns an array of Pokémon based on the pokemon.json file.
 - [x] Display a list of Pokémon in a table with columns for their specifications.
