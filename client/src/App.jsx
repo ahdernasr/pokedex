@@ -5,7 +5,6 @@ import PokemonView from "./pages/PokemonView/PokemonView";
 import NotFound from "./pages/NotFound/NotFound";
 import Navbar from "./pages/Navbar/Navbar";
 
-
 const cache = new InMemoryCache({}); // Not needed for this project
 
 const client = new ApolloClient({
